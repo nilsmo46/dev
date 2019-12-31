@@ -13,7 +13,7 @@ app.get("/deploy", (req, res) => {
     "Origin, X-Requested-With, Content-Type, Accept"
   );
   res.send("In Deploy");
-  const op = spawn("sh", ["deploy.sh"], { search: req.query.value });
+  const op = spawn("sh", ["deploy.sh", req.query.value]);
   op.stdout.on("data", data => {
     console.log(`stdout: ${data}`);
   });
