@@ -25,10 +25,6 @@ app.get("/deploy", (req, res) => {
   op.on("error", err => {
     console.log(`Failed to start: ${err}`);
   });
-
-  op.on("close", code => {
-    console.log(`Child process exited with ${code}`);
-  });
 });
 
 app.listen(3001, () => {
